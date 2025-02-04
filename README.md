@@ -38,9 +38,7 @@ This project provides a custom authentication system for Mikrotik hotspots, usin
 To redirect users to the authentication system, configure Mikrotik's firewall rules and DHCP settings to ensure requests pass through the Node.js authentication service.
 
 ## 📡 API Endpoints
-- 🔑 `POST /authenticate` – Validates user credentials and grants access.
-- 🔄 `GET /status` – Checks session status.
-- 🚪 `POST /logout` – Terminates user session.
+- 🔑 `POST api/validation` – Validates user credentials and grants access.
 
 ## 🔐 Security Considerations
 - 🔒 Ensure HTTPS is enabled to protect user data.
@@ -54,6 +52,6 @@ Feel free to contribute by submitting pull requests or reporting issues.
 This project is licensed under the **MIT License**.
 
 ## 📬 Contact
-For any inquiries, reach out via **your-email@example.com** or open an issue in the repository.
+For any inquiries, reach out via **jeysonhilario@gmail.com** or open an issue in the repository.
 
 

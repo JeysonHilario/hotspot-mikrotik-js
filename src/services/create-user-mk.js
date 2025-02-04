@@ -34,7 +34,6 @@ export async function createUserMK(mac){
   payload["name"] = mac;
   payload["mac-address"] = mac;
  
-  console.log(payload)
   try {
     const responsePUT = await axios.put( ROUTES_MK_API.create_user, payload, headers )
     if ( responsePUT.data.error ) {
@@ -44,8 +43,7 @@ export async function createUserMK(mac){
     }
   } catch( error ) {
     //console.error(`Erro ao se comunicar com a API\nCode: ${error.response.data.error} Error: ${error.response.data.message}`);
-    console.log(error.response)
-    logToFile( CODE.ERROR_CRITICAL, `Code: ${error.responsePUT.data.error} | Error: ${error.responsePUT.data.message} | Detail Error: ${error.responsePUT.data.detail}`);
+    logToFile( CODE.ERROR_CRITICAL, `Code: ${error.response.data.error} | Error: ${error.response.data.message} | Detail Error: ${error.response.data.detail}`);
     return;
   }
   setTimeout(async () => {    
@@ -53,13 +51,13 @@ export async function createUserMK(mac){
       const responsePOST = await axios.post( ROUTES_MK_API.run_script, script, headers );
       if ( responsePOST.data.error ) {
         //console.error("Erro na API Mikrotik :", responsePOST.data.error);
-        logToFile( CODE.ERROR_CRITICAL, `${responsePOST.data.error}`);
+        logToFile( CODE.ERROR_CRITICAL, `${response.data.error}`);
         return;
       }
     } catch ( error ) {
       //console.error(`Erro ao se comunicar com a API\nCode: ${error.response.data.error} Error: ${error.response.data.message}`);
       //logToFile(`Erro ao se comunicar com a API --- Code: ${error.response.data.error} Error: ${error.response.data.message}`,"ERROR-CRITICAL");
-      logToFile( CODE.ERROR_CRITICAL, `Code: ${error.responsePOST.data.error} | Error: ${error.responsePOST.data.message} | Detail Error: ${error.responsePOST.data.detail}`);
+      logToFile( CODE.ERROR_CRITICAL, `Code: ${error.response.data.error} | Error: ${error.response.data.message} | Detail Error: ${error.response.data.detail}`);
       return;
     }
   }, 30000); 

@@ -52,3 +52,16 @@
 [03-02-2025-16:33:12] [DB-SUCCESS] Dados gravados com sucesso!
 [03-02-2025-16:38:05] [DB-SUCCESS] Dados gravados com sucesso!
 [03-02-2025-16:40:46] [DB-SUCCESS] Dados gravados com sucesso!
+[04-02-2025-18:41:33] [DB-SUCCESS] Dados gravados com sucesso!
+[04-02-2025-18:45:39] [DB-SUCCESS] Dados gravados com sucesso!
+[04-02-2025-18:45:39] [ERROR-CRITICAL] Code: 400 | Error: Bad Request | Detail Error: invalid value of mac-address, mac address required
+[04-02-2025-18:46:02] [DB-SUCCESS] Dados gravados com sucesso!
+[04-02-2025-18:46:03] [ERROR-CRITICAL] Code: 400 | Error: Bad Request | Detail Error: invalid value of mac-address, mac address required
+[04-02-2025-18:46:28] [DB-SUCCESS] Dados gravados com sucesso!
+[04-02-2025-18:46:29] [ERROR-CRITICAL] Code: 400 | Error: Bad Request | Detail Error: invalid value of mac-address, mac address required
+[04-02-2025-18:46:37] [DB-SUCCESS] Dados gravados com sucesso!
+[04-02-2025-18:46:38] [ERROR-CRITICAL] Code: 400 | Error: Bad Request | Detail Error: invalid value of mac-address, mac address required
+[04-02-2025-18:49:41] [DB-SUCCESS] Dados gravados com sucesso!
+[04-02-2025-18:49:41] [ERROR-CRITICAL] Code: 400 | Error: Bad Request | Detail Error: invalid value of mac-address, mac address required
+[04-02-2025-18:50:51] [DB-SUCCESS] Dados gravados com sucesso!
+[04-02-2025-18:50:52] [ERROR-CRITICAL] Code: 400 | Error: Bad Request | Detail Error: invalid value of mac-address, mac address required

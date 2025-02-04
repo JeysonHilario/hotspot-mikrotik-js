@@ -1,6 +1,7 @@
 import { validationData } from "../services/validation-data.js";
 import { createUserMK } from "../services/create-user-mk.js"; 
 import { saveData } from "../data/save-db.js";
+import { returnDate } from "../utils/utils.js";
 
 export async function hotspotControl(request_body){
   // RECEBE E ENVIA O REQUEST BODY PARA OS SERVICES DE VALIDAÇÃO QUE RETORNA UM OBJETO DE SUCCESS OU ERROR COM SUA MENSAGEM DE STATUS
@@ -10,7 +11,7 @@ export async function hotspotControl(request_body){
   if( responseServer.success ){
     
     const data = {
-      "Data":             request_body.data,
+      "Data":             await returnDate(),
       "Nome Completo":    request_body.nameClient,
       "Telefone Cliente": request_body.telClient,
       "Cpf Cliente":      request_body.cpfClient,
