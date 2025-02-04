@@ -1,0 +1,3 @@
+curl -k -u jeyson:12EWX8qc -X PUT http://mikrotik.hilario.com.br/rest/ip/hotspot/user --data '{"name": "jeyson", "password": "testeapi"}' -H "content-type: application/json"
+curl -k -u jeyson:12EWX8qc -X GET http://mikrotik.hilario.com.br/rest/ip/hotspot/user
+curl -k -u jeyson:12EWX8qc -X POST https://mikrotik.hilario.com.br/rest/ip/hotspot/user/print --data '{"_proplist": ["name","uptime"]}' -H "content-type: application/json"

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="br">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="-1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HiLink hotspot - Log in</title>
+    <link rel="stylesheet" href="./css/style.css">
+  </head>
+
+  <body>
+
+  <!-- two other colors
+  <body class="lite">
+  <body class="dark">
+  -->
+
+    <div class="ie-fixMinHeight">
+      <div class="main">
+        <div class="wrap animated fadeIn">
+          <div>
+            <img class="logo" src="./img/hilink.png"> 
+          </div>
+          <div>
+            <p class="title_form">
+                Junte-se à HiLink e aproveite as melhores ofertas! 🌐 <br /> 
+                <a href="https://www.hilinkprovedor.com.br">Saiba mais</a>
+              </p>
+              <p class="info $(if error)alert$(endif)"> 
+               Por favor, forneça seu nome completo e seu numero de telefone para usar o ponto de acesso da HiLink.          
+              </p>
+          </div>
+          <div>
+            <form name="login" id="loginForm" action="" method="post">
+              
+
+              <label class="input-container" id="name">
+                <img class="ico" src="./img/user.svg" alt="#" />
+                <input name="nameClient" type="text" value="$(username)" placeholder="Nome Completo" />
+              </label>
+
+              <label class="input-container" id="tel">
+                <img class="ico"  src="./img/phone.svg" alt="#" />
+                <input name="telClient" type="text" placeholder="Telefone" />
+              </label>
+
+              <label class="input-container" id="cpf">
+                <img class="ico"  src="./img/user.svg" alt="#" />
+                <input name="cpfClient" type="text" placeholder="CPF" />
+              </label>
+              <input type="hidden" name="macClient" value="$(mac)" />
+
+              <input type="submit" value="Enviar" />
+
+            </form>
+
+            <button id="isClient" >Ja Sou Cliente</button>
+            <button id="back" >Voltar</button>
+
+            <p class="info bt" id="infor">Powered by HiLink Provedor De Internet</p>
+          </div>
+        </div>  
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./scripts/form-submit.js"></script>
+    <script src="./scripts/login.js"></script>
+  </body>
+
+</html>
+
