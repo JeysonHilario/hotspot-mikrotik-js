@@ -31,8 +31,8 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
   const telClient    = document.querySelector("input[name='telClient']").value;
   const cpfClient    = document.querySelector("input[name='cpfClient']").value;
   const macClient    = document.querySelector("input[name='macClient']").value;
-  //const urlServer    = "http://177.10.203.167:3001/api/validation";
-  const urlServer    = "http://192.168.17.109:3000/api/validation";
+  const urlServer    = "http://177.10.203.167:3001/api/validation";
+  //const urlServer    = "http://192.168.17.109:3000/api/validation";
 
   fetch(urlServer, { 
     method: "POST",

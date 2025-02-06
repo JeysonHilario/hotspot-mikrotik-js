@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HiLink hotspot - Log in</title>
     <link rel="stylesheet" href="./css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
   </head>
 
   <body>
@@ -25,12 +26,17 @@
           </div>
           <div>
             <p class="title_form">
-                Junte-se à HiLink e aproveite as melhores ofertas! 🌐 <br /> 
-                <a href="https://www.hilinkprovedor.com.br">Saiba mais</a>
-              </p>
-              <p class="info $(if error)alert$(endif)"> 
+              Junte-se à HiLink e aproveite as melhores ofertas! 🌐 <br /> 
+              <a href="https://www.hilinkprovedor.com.br" id="site">Saiba mais</a>
+            </p>
+            <p class="title_form">
+              <a href="https://wa.me/5583981148063?text=Olá,vim%20pelo%20hotspot!!!%0AE%20eu%20quero%20saber%20mais%20sobre%20seu%20serviço!" target="_blank" id="whatsapp-link">
+                <img src="./img/whatsapp.svg" alt="WhatsApp">
+              </a
+            </p>
+            <p class="info $(if error)alert$(endif)"> 
                Por favor, forneça seu nome completo e seu numero de telefone para usar o ponto de acesso da HiLink.          
-              </p>
+            </p>
           </div>
           <div>
             <form name="login" id="loginForm" action="" method="post">
@@ -38,7 +44,7 @@
 
               <label class="input-container" id="name">
                 <img class="ico" src="./img/user.svg" alt="#" />
-                <input name="nameClient" type="text" value="$(username)" placeholder="Nome Completo" />
+                <input name="nameClient" type="text" placeholder="Nome Completo" />
               </label>
 
               <label class="input-container" id="tel">
@@ -70,4 +76,3 @@
   </body>
 
 </html>
-

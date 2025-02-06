@@ -2,7 +2,7 @@ import axios from "axios";
 import dontenv from "dotenv";
 import https from "https";
 import { ROUTES_MK_API } from "../utils/routes.js";
-import { PAYLOAD } from "../utils/hotspot-api-utils.js";
+import { HOTSPOT_HOST_UPDATE, PAYLOAD } from "../utils/hotspot-api-utils.js";
 import { logToFile } from "../utils/log.js";
 import * as CODE from "../utils/log-status-codes.js";
 dontenv.config();
@@ -48,7 +48,7 @@ export async function createUserMK(mac){
   }
   setTimeout(async () => {    
     try {
-      const responsePOST = await axios.post( ROUTES_MK_API.run_script, script, headers );
+      const responsePOST = await axios.post( ROUTES_MK_API.run_script, HOTSPOT_HOST_UPDATE, headers );
       if ( responsePOST.data.error ) {
         //console.error("Erro na API Mikrotik :", responsePOST.data.error);
         logToFile( CODE.ERROR_CRITICAL, `${response.data.error}`);
