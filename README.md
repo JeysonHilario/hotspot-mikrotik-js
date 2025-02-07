@@ -19,8 +19,8 @@ This project provides a custom authentication system for Mikrotik hotspots, usin
 ## 🛠 Installation
 1. **Clone the repository:**
    ```sh
-   git clone https://github.com/your-repo/custom-hotspot-auth.git
-   cd custom-hotspot-auth
+   git clone https://github.com/JeysonHilario/hotspot-mikrotik-js.git
+   cd hotspot-mikrotik-js
    ```
 2. **Install dependencies:**
    ```sh

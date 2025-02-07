@@ -65,3 +65,21 @@
 [04-02-2025-18:49:41] [ERROR-CRITICAL] Code: 400 | Error: Bad Request | Detail Error: invalid value of mac-address, mac address required
 [04-02-2025-18:50:51] [DB-SUCCESS] Dados gravados com sucesso!
 [04-02-2025-18:50:52] [ERROR-CRITICAL] Code: 400 | Error: Bad Request | Detail Error: invalid value of mac-address, mac address required
+[07-02-2025-10:40:32] [DB-SUCCESS] Dados gravados com sucesso!
+[07-02-2025-10:42:33] [DB-SUCCESS] Dados gravados com sucesso!
+[07-02-2025-10:42:34] [ERROR-CRITICAL] Code: 400 | Error: Bad Request | Detail Error: invalid value of mac-address, mac address required
+[07-02-2025-10:43:35] [DB-SUCCESS] Dados gravados com sucesso!
+[07-02-2025-10:43:36] [ERROR-CRITICAL] Code: 400 | Error: Bad Request | Detail Error: invalid value of mac-address, mac address required
+[07-02-2025-10:44:06] [DB-SUCCESS] Dados gravados com sucesso!
+[07-02-2025-10:44:07] [ERROR-CRITICAL] Code: 400 | Error: Bad Request | Detail Error: invalid value of mac-address, mac address required
+[07-02-2025-10:44:28] [DB-SUCCESS] Dados gravados com sucesso!
+[07-02-2025-10:44:28] [ERROR-CRITICAL] Code: 400 | Error: Bad Request | Detail Error: invalid value of mac-address, mac address required
+[07-02-2025-10:44:42] [DB-SUCCESS] Dados gravados com sucesso!
+[07-02-2025-10:44:42] [ERROR-CRITICAL] Code: 400 | Error: Bad Request | Detail Error: invalid value of mac-address, mac address required
+[07-02-2025-10:45:07] [DB-SUCCESS] Dados gravados com sucesso!
+[07-02-2025-10:45:08] [ERROR-CRITICAL] Code: 400 | Error: Bad Request | Detail Error: invalid value of mac-address, mac address required
+[07-02-2025-10:45:44] [DB-SUCCESS] Dados gravados com sucesso!
+[07-02-2025-10:45:45] [ERROR-CRITICAL] Code: 400 | Error: Bad Request | Detail Error: invalid value of mac-address, mac address required
+[07-02-2025-10:46:56] [SGP-SUCCESS] Status: Client contract is valid
+[07-02-2025-10:46:56] [DB-SUCCESS] Dados gravados com sucesso!
+[07-02-2025-10:46:57] [ERROR-CRITICAL] Code: 400 | Error: Bad Request | Detail Error: invalid value of mac-address, mac address required
