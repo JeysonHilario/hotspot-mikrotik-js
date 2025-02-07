@@ -3,6 +3,7 @@ import { createUserMK } from "../services/create-user-mk.js";
 import { saveData } from "../data/save-db.js";
 import { returnDataBase } from "../data/return-data.js";
 import { returnDate } from "../utils/utils.js";
+import { returnHTML } from "../utils/return-html.js";
 
 export async function hotspotControlValidation(request_body){
   // RECEBE E ENVIA O REQUEST BODY PARA OS SERVICES DE VALIDAÇÃO QUE RETORNA UM OBJETO DE SUCCESS OU ERROR COM SUA MENSAGEM DE STATUS
@@ -29,5 +30,8 @@ export async function hotspotControlValidation(request_body){
 
 export async function hotspotControlGetData(){
   return await returnDataBase();
-  ;
+}
+
+export async function hotspotControlGetIndexHTML(){ 
+  return await returnHTML();
 }
