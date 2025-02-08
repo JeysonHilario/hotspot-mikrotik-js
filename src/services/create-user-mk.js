@@ -1,11 +1,11 @@
 import axios from "axios";
-import dontenv from "dotenv";
+import dotenv from "dotenv";
 import https from "https";
 import { ROUTES_MK_API } from "../utils/routes.js";
 import { HOTSPOT_HOST_UPDATE, PAYLOAD } from "../utils/hotspot-api-utils.js";
 import { logToFile } from "../utils/log.js";
 import * as CODE from "../utils/log-status-codes.js";
-dontenv.config();
+dotenv.config();
 
 
 export async function createUserMK(mac){

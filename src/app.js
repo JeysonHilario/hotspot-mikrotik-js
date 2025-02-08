@@ -10,7 +10,6 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use(express.static(path.join(__dirname, "public")));
 
 
 // ROTA POST PARA ENVIAR DADOS DO FORMULARIO PARA VALIDAÇÃO
@@ -28,9 +27,9 @@ app.get("/api/json",async ( req, res ) => {
 
 });
 
-app.get("/getUsers", async ( req, res ) => {
+app.use( "/getUsers", express.static( path.join( __dirname, "src", "public" )));
+app.get("/getUsers", (req, res) => {
 
-  const responseControl = await hotspotControlGetIndexHTML();  
-  res.status(200).send(responseControl);
+  res.sendFile( path.join( __dirname, "src", "public", "index.html" ));
 
 });

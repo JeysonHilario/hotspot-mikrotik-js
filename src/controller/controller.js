@@ -31,7 +31,3 @@ export async function hotspotControlValidation(request_body){
 export async function hotspotControlGetData(){
   return await returnDataBase();
 }
-
-export async function hotspotControlGetIndexHTML(){ 
-  return await returnHTML();
-}
