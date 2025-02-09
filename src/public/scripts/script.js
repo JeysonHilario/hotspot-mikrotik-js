@@ -1,6 +1,13 @@
-async function fetchDados() {
+
+let currentPage = 1;
+let rowsPerPage = 20;
+let allData = [];
+const PORT = 3000;
+
+async function fetchData() {
+
   try {
-    const response = await fetch("http://localhost:3000/api/json", { 
+    const response = await fetch(`http://localhost:${PORT}/api/json`, { 
       method: "GET",
       headers: {
         "Content-Type": "application/json"
@@ -8,62 +15,97 @@ async function fetchDados() {
     });
 
     const data = await response.json();
-    return data; // Retorna diretamente os dados sem validação de sucesso ou erro
+    return Array.isArray(data) ? data : []; 
   } catch (error) {
     console.error("Erro ao buscar os dados:", error);
-    return null;
+    return [];
   }
 }
 
-// Função para gerar as linhas da tabela
-function gerarTabela(dados) {
-  if (!Array.isArray(dados)) {
-    console.error("Os dados não são um array válido:", dados);
-    return;
-  }
+function displayTable( data, page = 1 ) {
+  
 
-  const tbody = document.querySelector("#tabela tbody");
-  tbody.innerHTML = ""; // Limpa a tabela antes de inserir novos dados
+  const tbody = document.querySelector("#table tbody");
+  tbody.innerHTML = "";
+  const start = ( page - 1 ) * rowsPerPage;
+  const end   = start + rowsPerPage;
+  const paginatedData = data.slice( start, end );
+  console.log(start)
+  console.log(end)
+  console.log(paginatedData)
 
-  dados.forEach(dado => {
+  paginatedData.forEach(dado => {
     const tr = document.createElement("tr");
 
-    const tdId = document.createElement("td");
-    tdId.textContent = dado["Data"] || "--";
-
-    const tdNome = document.createElement("td");
-    tdNome.textContent = dado["Nome Completo"] || "--";
-
-    const tdEmail = document.createElement("td");
-    tdEmail.textContent = dado["Telefone Cliente"] || "--";
-
-    const tdCPF = document.createElement("td");
-    tdCPF.textContent = dado["Cpf Cliente"] || "--";
-
-    const tdMAC = document.createElement("td");
-    tdMAC.textContent = dado["MAC"] || "--";
-
-    tr.appendChild(tdId);
-    tr.appendChild(tdNome);
-    tr.appendChild(tdEmail);
-    tr.appendChild(tdCPF);
-    tr.appendChild(tdMAC);
-
+    tr.innerHTML = `
+      <td>${dado["Data"] || "--"}</td>
+      <td>${dado["Nome Completo"] || "--"}</td>
+      <td>${dado["Telefone Cliente"] || "--"}</td>
+      <td>${dado["Cpf Cliente"] || "--"}</td>
+      <td>${dado["MAC"] || "--"}</td>
+      `;
+    
     tbody.appendChild(tr);
   });
+  updateVisualization();
+
 }
 
-// Chamar a função assíncrona e popular a tabela
-async function carregarDadosNaTabela() {
-  const dados = await fetchDados();
+function updateVisualization(){
   
-  //if (dados && Array.isArray(dados)) {  // Agora aceita qualquer JSON que seja um array
-    gerarTabela(dados);
-  //} else {
-   // console.error("Os dados retornados não contêm um array válido.");
-  //}
+  const totalPages = Math.ceil( allData.length / rowsPerPage );
+  const paginationDiv = document.querySelector("#pagination");
+  paginationDiv.innerHTML = "";
+
+  if( totalPages > 1 ){
+    const prevButton = document.createElement("button");
+    prevButton.textContent = "Anterior";
+    prevButton.disabled = currentPage === 1;
+    prevButton.onclick = () => changePage( currentPage - 1 );
+    paginationDiv.appendChild(prevButton);
+  }
+
+  for( let i = 1; i <= totalPages; i++ ){
+    const pageButton = document.createElement("button");
+    pageButton.textContent = i;
+    pageButton.className = currentPage === i ? "active" : "";
+    pageButton.onclick = () => changePage( i );
+    paginationDiv.appendChild( pageButton );
+  }
+
+  const nextButton = document.createElement("button");
+  nextButton.textContent = "Proximo";
+  nextButton.disabled = currentPage === totalPages;
+  nextButton.onclick = () => changePage( currentPage + 1 );
+  paginationDiv.appendChild(nextButton);
 }
 
-// Executa a função para carregar os dados na tabela
-carregarDadosNaTabela();
+function changePage( page ){
+  
+  if ( page < 1 || page > Math.ceil( allData.length / rowsPerPage )) return;
+  currentPage = page;
+  displayTable(allData , currentPage);
+
+}
+
+function printPage(){
+  window.print();
+}
+
+async function loadDataTable(){
+  allData = await fetchData();
+  currentPage = 1;
+  displayTable(allData , currentPage)
+
+}
+
+document.querySelector("#rowsPerPage").addEventListener("change", function() {
+  rowsPerPage = parseInt(this.value);
+  currentPage = 1;
+  displayTable(allData, currentPage);
+  updateVisualization();
+});
+
+document.querySelector("#printButton").addEventListener("click", printPage);
+loadDataTable();
 
