@@ -12,14 +12,14 @@ export async function validationData(request_body){
   if( nameClient && telClient ){
     
     if( ! await validate.name( nameClient )){
-      return { error: "Informe Seu nome completo MIN: 10 Caracteres" }; 
+      return { error: "Nome inválido ! Informe seu nome completo com no minimo 10 Caracteres"}; 
     }
     
     if( ! await validate.tel( telClient )){
       return { error: "Número de telefone inválido! Use o formato (99) 99999-9999" };
     } 
     
-    return { success: "Dados recebidos com sucesso. A HiLink Agradece !" }
+    return { success: "Dados recebidos com sucesso. A HiLink Agradece !!!" }
 
   }
   else if( cpfClient ){
@@ -29,13 +29,13 @@ export async function validationData(request_body){
     }
     
     if( await validateIsClient(request_body.cpfClient) === " Ativo " ){
-      return { success: "Dados recebidos com sucesso. A HiLink Agradece !" }
+      return { success: "Dados recebidos com sucesso. A HiLink Agradece !!!" }
     }else{
       return { error: "Dados recebidos com sucesso. Mais seu CPF nao está em nosso banco de dados !" }
     }
   }
   else{
-    return { error: "Dados Incompletos"};
+    return { error: "Dados Incompletos !!!"};
   }
   
 }

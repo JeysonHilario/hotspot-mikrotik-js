@@ -1,6 +1,6 @@
 
 let currentPage = 1;
-let rowsPerPage = 20;
+let rowsPerPage = 10;
 let allData = [];
 const PORT = 3000;
 

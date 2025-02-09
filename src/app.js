@@ -2,7 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
 import path from "path";
-import { hotspotControlValidation, hotspotControlGetData, hotspotControlGetIndexHTML } from "./controller/controller.js";
+import { hotspotControlValidation, hotspotControlGetData } from "./controller/controller.js";
 export const app = express()
 const __dirname = path.resolve();
 

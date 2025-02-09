@@ -3,25 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exemplo de Tabela Dinâmica</title>
+    <title>Tabela HiLink Hostpot</title>
     <link rel="stylesheet" href="./css/style.css">
 <body>
-    <h2>Tabela de Dados</h2>
-    <table id="tabela">
-        <thead>
-            <tr>
-                <th>Data</th>
-                <th>Nome Completo</th>
-                <th>Telefone</th>
-                <th>CPF</th>
-                <th>MAC</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- As linhas serão inseridas aqui -->
-        </tbody>
-    </table>
-    <script src="scripts/script.js"> </script>
-    
+  <h2>Lista de Usuários</h2>
+  <button id="printButton">Imprimir Tabela</button>
+  <label for="rowsPerPage">Registros por página: </label>
+    <select id="rowsPerPage">
+    <option value="10">10</option>
+    <option value="30" selected>30</option>
+    <option value="50">50</option>
+  </select>
+
+  <table id="table">
+    <thead>
+      <tr>
+        <th>Data</th>
+        <th>Nome</th>
+        <th>Telefone</th>
+        <th>CPF</th>
+        <th>MAC</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <div id="pagination"></div>
+
+  <script src="scripts/script.js"></script>   
 </body>
 </html>

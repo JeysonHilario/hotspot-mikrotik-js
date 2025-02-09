@@ -1,6 +1,7 @@
 export async function name(nameClient){
     
-  const nameClientRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]{10,50}$/;
+  //const nameClientRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]{10,50}$/;
+  const nameClientRegex = /^(?![a-zA-Z]{6,}$)([A-Za-zÀ-ÖØ-öø-ÿ]+(?:[\s'\-,\.][A-Za-zÀ-ÖØ-öø-ÿ]+)*)([A-Za-zÀ-ÖØ-öø-ÿ]{2,})$/;
   if (!nameClientRegex.test(nameClient)){
     return false;
   }
