@@ -89,7 +89,46 @@ function changePage( page ){
 }
 
 function printPage(){
-  window.print();
+  const table = document.querySelector("#table"); // Seleciona apenas a tabela
+
+  if (!table) {
+    console.error("Tabela não encontrada!");
+    return;
+  }
+
+  const printWindow = window.open("", "", "width=800,height=600");
+  printWindow.document.write(`
+    <html>
+      <head>
+        <title>Impressão</title>
+        <style>
+          table {
+            width: 100%;
+            border-collapse: collapse;
+          }
+          th, td {
+            border: 2px solid black;
+            padding: 8px;
+            text-align: left;
+          }
+          th {
+            background-color: #f2f2f2;
+          }
+        </style>
+      </head>
+      <body>
+        ${table.outerHTML} <!-- Apenas a tabela será impressa -->
+        <script>
+          window.onload = function() {
+            window.print();
+            window.close();
+          };
+        </script>
+      </body>
+    </html>
+  `);
+  printWindow.document.close();
+
 }
 
 async function loadDataTable(){
