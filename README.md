@@ -11,34 +11,45 @@ This project provides a custom authentication system for Mikrotik hotspots, usin
 - 📊 **Logging and Monitoring**: Keeps track of authentication attempts and user sessions.
 
 ## 📋 Requirements
-- 🖧 **Mikrotik Router** (with proper network configuration)
+- 🖧  **Mikrotik Router** (with proper network configuration)
 - 🛠 **Node.js** (latest LTS recommended)
 - 🌐 **Express.js** (or another web framework for handling requests)
 - 🗄 **Database** (optional, for storing user credentials and session data)
 
 ## 🛠 Installation
 1. **Clone the repository:**
-   ```sh
-   git clone https://github.com/JeysonHilario/hotspot-mikrotik-js.git
-   cd hotspot-mikrotik-js
-   ```
+    ```sh
+    git clone https://github.com/JeysonHilario/hotspot-mikrotik-js.git
+    cd hotspot-mikrotik-js
+    ```
 2. **Install dependencies:**
-   ```sh
-   npm install
-   ```
+    ```sh
+    npm install
+    ```
 3. **Configure environment variables:**
    Create a `.env` file and set up the necessary configurations (e.g., API keys, database connection, Mikrotik API credentials).
-
+    ```sh
+    USERNAME    = ""
+    PASSWORD    = ""
+    SGP_URL     = ""
+    SGP_TOKEN   = ""
+    SGP_APP     = ""
+    MIKROTIK_IP = ""
+    ```
 4. **Start the server:**
-   ```sh
-   npm start
-   ```
+    ```sh
+    npm start
+    ```
 
 ## ⚙️ Mikrotik Configuration
 To redirect users to the authentication system, configure Mikrotik's firewall rules and DHCP settings to ensure requests pass through the Node.js authentication service.
+-   MikroTik must have the certificate on the web-SSL server for API requests to work.
+-   SCRIPTS MIKROTIK => docs/scripts-mikrotik/script-mk.rsc
 
 ## 📡 API Endpoints
 - 🔑 `POST api/validation` – Validates user credentials and grants access.
+- 🔑 `GET  api/json`       – Get DataBase on JSON for the return table view.
+- 🔑 `GET  /getUsers`      – HTML table view.
 
 ## 🔐 Security Considerations
 - 🔒 Ensure HTTPS is enabled to protect user data.
