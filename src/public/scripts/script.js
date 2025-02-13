@@ -1,6 +1,6 @@
 
 let currentPage = 1;
-let rowsPerPage = 10;
+let rowsPerPage = 30;
 let allData = [];
 const PORT = 3000;
 
@@ -24,29 +24,41 @@ async function fetchData() {
 
 function displayTable( data, page = 1 ) {
   
-
   const tbody = document.querySelector("#table tbody");
   tbody.innerHTML = "";
-  const start = ( page - 1 ) * rowsPerPage;
-  const end   = start + rowsPerPage;
-  const paginatedData = data.slice( start, end );
-  console.log(start)
-  console.log(end)
-  console.log(paginatedData)
+  if(page !== "all" ){ 
+    const start = ( page - 1 ) * rowsPerPage;
+    const end   = start + rowsPerPage;
+    const paginatedData = data.slice( start, end );
+    paginatedData.forEach(dado => {
+      const tr = document.createElement("tr");
 
-  paginatedData.forEach(dado => {
-    const tr = document.createElement("tr");
-
-    tr.innerHTML = `
-      <td>${dado["Data"] || "--"}</td>
-      <td>${dado["Nome Completo"] || "--"}</td>
-      <td>${dado["Telefone Cliente"] || "--"}</td>
-      <td>${dado["Cpf Cliente"] || "--"}</td>
-      <td>${dado["MAC"] || "--"}</td>
-      `;
-    
-    tbody.appendChild(tr);
+      tr.innerHTML = `
+        <td>${dado["Data"] || "--"}</td>
+        <td>${dado["Nome Completo"] || "--"}</td>
+        <td>${dado["Telefone Cliente"] || "--"}</td>
+        <td>${dado["Cpf Cliente"] || "--"}</td>
+        <td>${dado["MAC"] || "--"}</td>
+        `;
+      
+      tbody.appendChild(tr);
   });
+  }else{
+    rowsPerPage = allData.length
+    data.forEach(dado => {
+      const tr = document.createElement("tr");
+
+      tr.innerHTML = `
+        <td>${dado["Data"] || "--"}</td>
+        <td>${dado["Nome Completo"] || "--"}</td>
+        <td>${dado["Telefone Cliente"] || "--"}</td>
+        <td>${dado["Cpf Cliente"] || "--"}</td>
+        <td>${dado["MAC"] || "--"}</td>
+        `;
+      
+      tbody.appendChild(tr);
+    });
+  };
   updateVisualization();
 
 }
@@ -81,7 +93,6 @@ function updateVisualization(){
 }
 
 function changePage( page ){
-  
   if ( page < 1 || page > Math.ceil( allData.length / rowsPerPage )) return;
   currentPage = page;
   displayTable(allData , currentPage);
@@ -127,7 +138,6 @@ function printPage(){
       </body>
     </html>
   `);
-  printWindow.document.close();
 
 }
 
@@ -139,6 +149,11 @@ async function loadDataTable(){
 }
 
 document.querySelector("#rowsPerPage").addEventListener("change", function() {
+  if(this.value === "all"){
+    displayTable(allData, this.value)
+    updateVisualization();
+    return
+  }
   rowsPerPage = parseInt(this.value);
   currentPage = 1;
   displayTable(allData, currentPage);
@@ -146,5 +161,8 @@ document.querySelector("#rowsPerPage").addEventListener("change", function() {
 });
 
 document.querySelector("#printButton").addEventListener("click", printPage);
+document.querySelector("#excludeDBButton").addEventListener("click", function(){
+  console.log("Excluida")
+});
 loadDataTable();
 
